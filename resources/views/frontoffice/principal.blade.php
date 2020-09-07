@@ -4,7 +4,7 @@
 <section id="hero">
     <div class="container">
         <div class="content-left">
-            <h1>PRODUCTOS PERSONALIZADOS</h1>
+            <h1>PRODUCTOS PERSONALIZADOzszsS</h1>
             <p id="p1"><b>Imagina y crea diseños personalizados para tus prendas con el estilo que te caracteriza.</b></p>
             <P id="p1"><b>Y si no puedes no te preocupes nosotros te ayudamos.</b></P>
             <P id="p1"><b>Compra prendas con diseños únicos.</b></P>
