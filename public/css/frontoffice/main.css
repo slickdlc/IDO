@@ -1,0 +1,131 @@
+#navbar1 {
+    background-color: #8559a5 !important;
+    min-height: 50px !important;
+}
+#navbar2 {
+   background-color: #323232 !important;
+   min-height: 100px !important; 
+}
+.nav-link {
+    color: white;
+}
+.nav-link:hover{
+    color: #8559a5;
+}
+strong{
+    color: white;
+}
+#rastrear:hover,#contactanos:hover,#ayuda:hover{
+    color: #323232;
+}
+#btnbuscar{
+   color: white !important;
+  border: 2px solid white !important;
+}
+#btnbuscar:hover{
+      background-color: #8559a5 !important;
+}
+.navbar-toggler{
+    font-size: 40px !important; 
+}
+.navbar-toggler:focus{
+    outline: none !important;
+}
+a:hover{
+    text-decoration: none;
+}
+#hero{
+    background-image: url("/img/frontoffice/portada1.png"); 
+    background-size: cover;
+    padding-top: 150px;
+    min-height: 1200px;
+    color: white;
+}
+h1{
+    font-size: 80px;
+    font-weight: 600px;
+    line-height: 80px;
+}
+#p1{
+    font-size: 25px;
+    color: #fff6f6;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+.content-left{
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    text-align: left;
+}
+.content-center{
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    text-align: center;
+    margin-top: 120px;
+    margin-bottom: 60px;
+}
+.btn{
+    font-size: 20px;
+    padding: 15px 26px;
+    min-width: 160px;
+    border-radius: 2px;
+    display: inline-block;
+}
+btn-light{
+    background: white;
+    color: #8559a5;
+    border: 2px solid white;
+}
+.topmargin_xs{ margin-top: 15px}
+.topmargin_sm{ margin-top: 30px}
+.topmargin_lg{ margin-top: 60px}
+
+.btn i{
+    font-size: 14px;
+    margin-left: 5px;
+}
+.creatividad-container{
+    position: relative;
+    overflow: hidden;
+    margin: 10px 0;
+    border-radius: 2px;
+}
+.creatividad-container img{
+    -moz-transition: all 0.8s;
+    -webkit-transition: all 0.8s;
+    transition: all 0.8s;
+}
+.creatividad-container:hover img{
+    -moz-transform: scale(1.2);
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+.creatividad-details{
+    position: absolute;
+    bottom: 25px;
+    left: 25px;
+    z-index: 9000;
+}
+.creatividad-details a h2, .creatividad-details a p{
+    color: black;
+}
+.creatividad-details h2{
+    margin-bottom: 0px;
+}
+.bg-dark{
+    background-color:  #323232 !important;
+}
+#footer{
+    padding: 80px 0;
+    text-align: center;
+    color: white;
+}
+#footer a{
+    color: white;
+}
+#footer a:hover{
+    color: white;
+}
+#footer .list-inline .list-inline-item{
+    padding: 10px 15px;
+}
