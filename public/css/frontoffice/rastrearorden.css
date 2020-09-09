@@ -1,0 +1,30 @@
+#rastrearorden1{
+    max-width: 1200px;
+    margin: 0 auto 60px auto;
+    margin-top: 120px;
+    margin-bottom: 60px;
+    margin-left: 680px;
+    text-align: left;
+}
+#rastrearorden form #fname{
+    width: 50%;
+    margin-bottom: 20px;
+    height: 52px;
+    line-height: 52px;
+    font-size: 18px;
+    border: 1px solid gray;
+}
+#rastrearorden  form .btn-acceder{
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    color: white;
+    background-color: #8559a5;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+#rastrearorden  form .btn-acceder:hover{
+    background-color: rgba(0,0,0,.3);
+}
