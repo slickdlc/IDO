@@ -138,7 +138,13 @@
         </section>
         <script src="{{ asset('js/jquery.min.js') }}" rel="stylesheet"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" rel="stylesheet"></script>
+
+        <script>
+          NProgress.done();
+        </script>
+
         <script src="{{ asset('js/popup.js') }}" rel="stylesheet"></script>
+
         @yield('scripts')
     </body>
 </html>
