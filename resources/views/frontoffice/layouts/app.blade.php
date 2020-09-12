@@ -97,6 +97,9 @@
         </section>
         <script src="{{ asset('js/jquery.min.js') }}" rel="stylesheet"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" rel="stylesheet"></script>
+        <script>
+          NProgress.done();
+        </script>
         @yield('scripts')
     </body>
 </html>

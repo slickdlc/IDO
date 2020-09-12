@@ -2,23 +2,25 @@
 
 namespace App;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    use Notifiable;
+     use Notifiable;
 
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
-    protected $fillable = [
-        'name', 'email', 'password',
-    ];
 
+    protected $primaryKey = 'iduser';
+    public $timestamps = false;
+   // public $remember_token=false;
+    
+    protected $fillable = ['user','password'];
     /**
      * The attributes that should be hidden for arrays.
      *
@@ -28,12 +30,20 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    /**
-     * The attributes that should be cast to native types.
-     *
-     * @var array
-     */
-    protected $casts = [
-        'email_verified_at' => 'datetime',
-    ];
+
+    public function hasRole($role){
+        $roles=DB::table('users')
+        ->join('user_perfil','user_perfil.iduser','users.iduser')
+        ->join('perfil','perfil.idperfil','=','user_perfil.idperfil')
+        ->where('users.iduser',$this->iduser)
+        ->where('user_perfil.estado',1)
+        ->select('perfil.perfil')
+        ->get();
+        foreach ($roles as &$roleuser) {
+            if($roleuser->perfil==$role){
+                return true;
+            } 
+        }
+        return false;
+    }
 }

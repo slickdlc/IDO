@@ -1,0 +1,1 @@
+$('btnAgregarCategoria').click();
