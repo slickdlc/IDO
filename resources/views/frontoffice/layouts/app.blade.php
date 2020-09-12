@@ -71,6 +71,47 @@
                 </div>
             </div>
         </nav>
+    <section id="ventanadesplegable">
+    <div class="overlay" id="overlay">
+        <div class="container" id="contenidopopup">
+            <div class="row">
+                <div class="col-md-12">
+                    <a href="#" id="btn-cerrar-popup" class="btn-cerrar-popup"><i class="fas fa-times"></i></a>
+                </div>
+                <div class="col-md-6">
+                    <div class="popup" id="popup">
+                            <h2><b>ACCEDER</b></h2>
+                            <form action="">
+                                <label for="fname">Nombre de usuario o correo electrónico *</label><br>
+                                <input type="text" id="fname" name="fname" placeholder="Bnito o 123@gmail.com"><br>
+                                <label for="lname">Contraseña *</label><br>
+                                <input type="password" id="fname"><br>
+                                <input type="checkbox" id="recuerdame" value="recuerdame">
+                                <label for="vehicle3"> Recuérdame</label><br>
+                                <input type="submit" value="ACCEDER" class="btn-acceder"><br><br>
+                                <a href="#">¿Olvidaste la contraseña?</a>
+                            </form>
+                     </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="popup" id="popup">
+                        <h2><b>REGISTRARSE</b></h2>
+                        <form action="">
+                            <label for="fname">Dirección de correo electrónico *</label><br>
+                            <input type="email" id="fname" name="fname" placeholder="123@gmail.com"><br>
+                            <label for="lname">Contraseña *</label><br>
+                            <input type="password" id="fname"><br>
+                            <input type="checkbox" id="recuerdame" value="recuerdame">
+                            <label for="vehicle3"> Envíenme noticias y ofertas</label><br>
+                            <p>Tus datos personales se utilizarán para procesar tu pedido, mejorar tu experiencia en esta web, gestionar el acceso a tu cuenta y otros propósitos descritos en nuestra política de privacidad.</p><br>
+                            <input type="submit" value="REGISTRARSE" class="btn-acceder">
+                        </form> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
         @yield('contenido')
         <section id="footer" class="bg-dark">
             <div class="container">
@@ -97,9 +138,13 @@
         </section>
         <script src="{{ asset('js/jquery.min.js') }}" rel="stylesheet"></script>
         <script src="{{ asset('bootstrap/js/bootstrap.min.js') }}" rel="stylesheet"></script>
+
         <script>
           NProgress.done();
         </script>
+
+        <script src="{{ asset('js/popup.js') }}" rel="stylesheet"></script>
+
         @yield('scripts')
     </body>
 </html>

@@ -19,10 +19,17 @@ strong{
     color: #323232;
 }
 #btnbuscar{
-   color: white !important;
-  border: 2px solid white !important;
+    color: white !important;
+    border: 2px solid white !important;
 }
 #btnbuscar:hover{
+      background-color: #8559a5 !important;
+}
+#btncrear{
+    border: 2px solid white !important;
+
+}
+#btncrear:hover{
       background-color: #8559a5 !important;
 }
 .navbar-toggler{
@@ -33,6 +40,9 @@ strong{
 }
 a:hover{
     text-decoration: none;
+}
+body{
+    background-color: rgba(163,159,155,.5) !important; 
 }
 #hero{
     background-image: url("/img/frontoffice/portada1.png"); 
@@ -57,6 +67,9 @@ h1{
     margin: 0 auto 60px auto;
     text-align: left;
 }
+.content-left a i{
+    font-size: 50px;
+}
 .content-center{
     max-width: 1200px;
     margin: 0 auto 60px auto;
@@ -64,10 +77,11 @@ h1{
     margin-top: 120px;
     margin-bottom: 60px;
 }
-.btn{
+#btncrear{
     font-size: 20px;
     padding: 15px 26px;
-    min-width: 160px;
+    min-width: 250px;
+    min-height: 50px;
     border-radius: 2px;
     display: inline-block;
 }
@@ -112,6 +126,9 @@ btn-light{
 .creatividad-details h2{
     margin-bottom: 0px;
 }
+.creatividad-details a:hover{
+    text-decoration: none;
+}
 .bg-dark{
     background-color:  #323232 !important;
 }
@@ -128,4 +145,81 @@ btn-light{
 }
 #footer .list-inline .list-inline-item{
     padding: 10px 15px;
+}
+.iconos i{
+    margin-top: 50px;
+    font-size: 100px;
+}
+#iconosgarantia{
+    margin-bottom: 50px;
+}
+.overlay{
+    background-color: rgba(0,0,0,.5);
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    z-index: 1;
+}
+.overlay.active{
+    visibility: visible;
+}
+.btn-cerrar-popup{
+    font-size: 16px;
+    line-height: 16px;
+    display: block;
+    text-align: right;
+    color: #8559a5;
+}
+.btn-cerrar-popup:hover{
+    color: black;
+}
+.btn-cerrar-popup i{
+    font-size: 40px;
+}
+#contenidopopup{
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,.3);
+    border-radius: 3px;
+    padding: 20px;
+    height: 550px;
+}
+.popup h2{
+    font-size: 36px;
+    font-weight: 600px;
+    margin-bottom: 10px;
+}
+.popup form #fname{
+    width: 100%;
+    margin-bottom: 20px;
+    height: 52px;
+    line-height: 52px;
+    font-size: 18px;
+    border: 1px solid gray;
+}
+.popup form .btn-acceder{
+    padding: 0 20px;
+    height: 40px;
+    line-height: 40px;
+    border: none;
+    color: white;
+    background-color: #8559a5;
+    border-radius: 3px;
+    cursor: pointer;
+
+}
+.popup form .btn-acceder:hover{
+    background-color: rgba(0,0,0,.3);
+}
+.popup form a{
+    color: #8559a5;
+    text-decoration: none;
+}
+.popup form a:hover{
+    color: rgba(0,0,0,.5);   
 }
