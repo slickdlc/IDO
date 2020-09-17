@@ -12,7 +12,7 @@
             </a>
             <div class="dropdown-menu dropdown-usermenu pull-right" aria-labelledby="navbarDropdown">
                 
-                <a class="dropdown-item"  href="{{route('adminLogout')}}><i class="fa fa-sign-out pull-right"></i> Cerrar sesión</a>
+                <a class="dropdown-item"  href="{{route('adminLogout')}}"><i class="fa fa-sign-out pull-right"></i> Cerrar sesión</a>
             </div>
           </li>
           @include('backoffice.layouts.header.notifications')

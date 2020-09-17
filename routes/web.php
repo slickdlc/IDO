@@ -14,10 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('frontoffice/principal');
+    return view('frontoffice/nosotros');
+    // return view('frontoffice/principal');
 });
 
-Auth::routes();
+Route::get('/admin/login', 'Admin\LoginController@index')->name('adminLogin');
+Route::get('/admin/logout', 'Admin\LogoutController@logout')->name('adminLogout');
+Route::post('/admin/login', 'Admin\LoginController@authenticate')->name('adminAuthenticate');
+Route::get('/admin/home', 'HomeController@index')->name('adminHome')->middleware('auth', 'role:ADMIN');
+Route::get('/admin/categoria', 'Admin\CategoriaController@index')->name('adminCategoria')->middleware('auth', 'role:ADMIN');
+
 
 Route::get('/home', 'HomeController@index')->name('home');
-

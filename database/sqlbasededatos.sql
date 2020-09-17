@@ -1,5 +1,6 @@
 CREATE DATABASE IDO2;
 use ido2;
+SET sql_mode = '';
 Create table users(
 iduser int primary key auto_increment,
 user varchar(40) unique,
@@ -47,7 +48,6 @@ idproducto int primary key auto_increment,
 en_venta tinyint(1),
 precio_unidad double,
 producto_grupo int,
-stock int,
 alerta_de_bajo_stock int,
 estado tinyint(1),
 personalizable tinyint(1),
@@ -72,22 +72,17 @@ constraint fk_atributo_atributo_grupo foreign key (idatributo_grupo) references 
 created_at timestamp,
 updated_at timestamp
 );
-create table categoria_grupo(
-idcategoria_grupo int primary key auto_increment,
-position int,
-categoria_grupo varchar(30),
-created_at timestamp,
-updated_at timestamp
-);
+
 create table categoria(
 idcategoria int primary key auto_increment,
 categoria varchar(30),
-idcategoria_grupo int,
 position int,
-constraint fk_categoria_categoria_grupo foreign key (idcategoria_grupo) references categoria_grupo(idcategoria_grupo),
+es_categoria_raiz tinyint(1),
+idcategoria_padre int,
 created_at timestamp,
 updated_at timestamp
 );
+
 create table persona(
 idpersona int primary key auto_increment,
 nombres varchar(50),
@@ -108,20 +103,32 @@ alter table permiso add idperfil int;
 alter table permiso add constraint fk_permiso_perfil foreign key (idperfil) references perfil(idperfil);
 
 
-create table caracteristica_grupo(
-idcaracteristica_grupo int primary key auto_increment,
-position int,
-caracteristica_grupo varchar(30),
-created_at timestamp,
-updated_at timestamp
-);
 create table caracteristica(
 idcaracteristica int primary key auto_increment,
 caracteristica varchar(30),
-idcaracteristica_grupo int,
 position int,
-constraint fk_caracteristica_caracteristica_grupo foreign key (idcaracteristica_grupo) references caracteristica_grupo(idcaracteristica_grupo),
 created_at timestamp,
-updated_at timestamp
-);
+updated_at timestamp);
+create table caracteristica_valor(
+idcaracteristica_valor int primary key auto_increment,
+caracteristica_valor varchar(30),
+idcaracteristica int,
+position int,
+created_at timestamp,
+updated_at timestamp,
+constraint fk_caracteristica_valor_caracteristica foreign key (idcaracteristica) references caracteristica(idcaracteristica));
 alter table submodulo add url varchar(100);
+create table producto_atributo(
+idproducto_atributo int primary key auto_increment,
+precio_unidad double,
+alerta_de_bajo_stock int,
+idproducto int,
+constraint fk_producto_atributo_producto foreign key (idproducto) references producto(idproducto)
+);
+create table stock_disponible(
+idstock_disponible int primary key auto_increment,
+idproducto int,
+idproducto_atributo int,
+cantidad int,
+cantidad_reservada int
+);
