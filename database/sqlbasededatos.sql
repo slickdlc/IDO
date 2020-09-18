@@ -36,13 +36,6 @@ idmodulo int,
 constraint fk_permiso_user foreign key (iduser) references users(iduser),
 constraint fk_permiso_modulo foreign key (idmodulo) references modulo(idmodulo));
 
-create table producto_grupo(
-idproducto_grupo int primary key auto_increment,
-producto_grupo varchar(50) unique,
-estado tinyint(1),
-portada_img_url tinyint
-);
-
 create table producto(
 idproducto int primary key auto_increment,
 en_venta tinyint(1),
@@ -125,10 +118,99 @@ alerta_de_bajo_stock int,
 idproducto int,
 constraint fk_producto_atributo_producto foreign key (idproducto) references producto(idproducto)
 );
+create table producto_atributo_combinacion(
+idatributo int,
+idproducto_atributo int,
+constraint fk_producto_atributo_combinacion_atributo foreign key (idatributo) references atributo(idatributo),
+constraint fk_producto_atributo_combinacion_producto_atributo foreign key (idproducto_atributo) references producto_atributo(idproducto_atributo)
+);
 create table stock_disponible(
 idstock_disponible int primary key auto_increment,
 idproducto int,
 idproducto_atributo int,
 cantidad int,
-cantidad_reservada int
+cantidad_reservada int,
+constraint fk_stock_disponible_producto foreign key (idproducto) references producto(idproducto),
+constraint fk_stock_disponible_producto_atributo foreign key (idproducto_atributo) references producto_atributo(idproducto_atributo)
+);
+create table stock_movimiento_razon(
+idstock_movimiento_razon int primary key auto_increment,
+signo int,
+created_at timestamp,
+updated_at timestamp,
+deleted tinyint(1)
+);
+
+create table carro_estado(
+idcarro_estado int primary key auto_increment,
+carro_estado varchar(30)
+);
+
+create table carro(
+idcarro int primary key auto_increment,
+iduser int,
+updated_at timestamp,
+created_at timestamp,
+total double,
+idcarro_estado int,
+constraint fk_carro_carro_estado foreign key (idcarro_estado) references carro_estado(idcarro_estado)
+);
+
+create table carro_detalle(
+idcarro_detalle int primary key auto_increment,
+idcarro int, 
+idproducto_atributo int,
+idproducto int,
+cantidad int,
+modificado tinyint(1),
+constraint fk_carro_detalle_carro foreign key (idcarro) references carro(idcarro),
+constraint fk_carro_detalle_producto_atributo foreign key (idproducto_atributo) references producto_atributo(idproducto_atributo),
+constraint fk_carro_detalle_producto foreign key (idproducto) references producto(idproducto)
+);
+
+create table carro_detalle_modificacion(
+idcarro_detalle_modificacion int primary key auto_increment,
+urlimg varchar(200),
+ancho double,
+altura double,
+x double,
+y double,
+idcarro_detalle int,
+constraint fk_carro_detalle_modificacion_carro_detalle foreign key (idcarro_detalle) references carro_detalle(idcarro_detalle)
+);
+create table pedido_estado(
+idpedido_estado int primary key auto_increment,
+pedido_estado varchar(50)
+);
+create table pedido(
+idpedido int primary key auto_increment,
+codigo varchar(30) unique,
+idcarro int,
+idpedido_estado int,
+created_at int,
+updated_at int,
+constraint fk_pedido_pedido_estado foreign key (idpedido_estado) references pedido_estado(idpedido_estado)
+);
+create table empleado(
+idempleado int primary key auto_increment,
+iduser int,
+created_at timestamp,
+updated_at timestamp,
+constraint fk_empleado_user foreign key (iduser) references users(iduser)
+);
+
+create table stock_movimiento(
+idstock_movimiento int primary key auto_increment,
+idstock_disponible int,
+idstock_movimiento_razon int,
+idpedido int,
+idempleado int,
+cantidad int,
+created_at timestamp,
+updated_at timestamp,
+signo int,
+constraint fk_stock_movimiento_stock_disponible foreign key (idstock_disponible) references stock_disponible(idstock_disponible),
+constraint fk_stock_movimiento_stock_movimiento_razon foreign key (idstock_movimiento_razon) references stock_movimiento_razon(idstock_movimiento_razon),
+constraint fk_stock_movimiento_pedido foreign key (idpedido) references pedido(idpedido),
+constraint fk_stock_movimiento_empleado foreign key (idempleado) references empleado(idempleado)
 );

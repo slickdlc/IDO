@@ -4,9 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Perfil extends Model
+class Permiso extends Model
 {
-    protected $table = 'perfil';
-    protected $primaryKey = 'idperfil';
+    protected $table = 'permiso';
+    protected $primaryKey = 'idpermiso';
     public $timestamps = false;
 }
